@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+
+	<title>Introduction to Linux</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="dns-prefetch" href="http://use.fontawesome.com">
+<link rel="dns-prefetch" href="http://fonts.googleapis.com">
+<link rel="alternate" type="application/rss+xml" title=" &raquo; Feed" href="../../../../feed/index.html">
+<script>
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/svg\/","svgExt":".svg","source":{"concatemoji":"..\/..\/..\/..\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.6.2"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83d\udc26\u200d\u2b1b","\ud83d\udc26\u200b\u2b1b")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+</script>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel="stylesheet" id="wp-block-library-css" href="../../../../wp-includes/css/dist/block-library/style.min.css?ver=6.6.2" media="all">
+<link rel="stylesheet" id="my-custom-block-frontend-css-css" href="../../../../wp-content/plugins/wpdm-gutenberg-blocks/build/style.css?ver=6.6.2" media="all">
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel="stylesheet" id="wpdm-font-awesome-css" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css?ver=6.6.2" media="all">
+<link rel="stylesheet" id="wpdm-front-bootstrap-css" href="../../../../wp-content/plugins/download-manager/assets/bootstrap/css/bootstrap.min.css?ver=6.6.2" media="all">
+<link rel="stylesheet" id="wpdm-front-css" href="../../../../wp-content/plugins/download-manager/assets/css/front.css?ver=6.6.2" media="all">
+<link rel="stylesheet" id="Rich_Web_Tabs-css" href="../../../../wp-content/plugins/tabbed//Style/Tabs-Rich-Web-Widget.css?ver=6.6.2" media="all">
+<link rel="stylesheet" id="rwtabs_fontawesome-css-css" href="../../../../wp-content/plugins/tabbed//Style/richwebicons.css?ver=6.6.2" media="all">
+<link rel="stylesheet" id="wpdmpp-front-css" href="../../../../wp-content/plugins/wpdm-premium-packages/assets/css/wpdmpp.css?ver=6.6.2" media="all">
+<link rel="stylesheet" id="wordpress-popular-posts-css-css" href="../../../../wp-content/plugins/wordpress-popular-posts/assets/css/wpp.css?ver=6.4.0" media="all">
+<link rel="stylesheet" id="phnewsfeed-style-css" href="../../../../wp-content/themes/ph-news-feed/style.css?ver=1.0.1.1" media="all">
+<link rel="stylesheet" id="bootstrap-css" href="../../../../wp-content/themes/ph-news-feed/lib/bootstrap/bootstrap.min.css?ver=6.6.2" media="all">
+<link rel="stylesheet" id="fontawesome-css" href="../../../../wp-content/themes/ph-news-feed/lib/font-awesome/css/all.min.css?ver=6.6.2" media="all">
+<link rel="stylesheet" id="acme-ticker-css-css" href="../../../../wp-content/themes/ph-news-feed/lib/acmeticker/css/style.min.css?ver=6.6.2" media="all">
+<link rel="stylesheet" id="owl-carousel-css-css" href="../../../../wp-content/themes/ph-news-feed/lib/owl-carousel/dist/assets/owl.carousel.min.css?ver=6.6.2" media="all">
+<link rel="stylesheet" id="owl-carousel-theme-css-css" href="../../../../wp-content/themes/ph-news-feed/lib/owl-carousel/dist/assets/owl.theme.default.min.css?ver=6.6.2" media="all">
+<link rel="stylesheet" id="sidr-dark-css-css" href="../../../../wp-content/themes/ph-news-feed/lib/sidr/stylesheets/jquery.sidr.dark.min.css?ver=6.6.2" media="all">
+<link rel="stylesheet" id="phnewsfeed-primary-font-css" href="http://fonts.googleapis.com/css2?family=Quicksand%3Awght%40100%3B200%3B300%3B400%3B500%3B600%3B700%3B900&amp;display=swap&amp;ver=6.6.2" media="all">
+<link rel="stylesheet" id="phnewsfeed-secondary-font-css" href="http://fonts.googleapis.com/css2?family=Oswald%3Awght%40300%3B400%3B500%3B600%3B700&amp;display=swap&amp;ver=6.6.2" media="all">
+<link rel="stylesheet" id="phnewsfeed-core-css" href="../../../../wp-content/themes/ph-news-feed/design-files/core/core.css?ver=6.6.2" media="all">
+<link rel="stylesheet" id="phnewsfeed-header-css" href="../../../../wp-content/themes/ph-news-feed/design-files/header/style3/header.css?ver=6.6.2" media="all">
+<link rel="stylesheet" id="phnewsfeed-blog-style1-css" href="../../../../wp-content/themes/ph-news-feed/design-files/blog-style/blog-style1.css?ver=6.6.2" media="all">
+<link rel="stylesheet" id="phnewsfeed-single-css" href="../../../../wp-content/themes/ph-news-feed/design-files/single/single.css?ver=6.6.2" media="all">
+<link rel="stylesheet" id="phnewsfeed-sidebar-css" href="../../../../wp-content/themes/ph-news-feed/design-files/sidebar/sidebar.css?ver=6.6.2" media="all">
+<link rel="stylesheet" id="phnewsfeed-footer-css" href="../../../../wp-content/themes/ph-news-feed/design-files/footer/footer.css?ver=6.6.2" media="all">
+<link rel="stylesheet" id="phnewsfeed-featured-modules-css" href="../../../../wp-content/themes/ph-news-feed/design-files/featured-modules/featured-modules.css?ver=6.6.2" media="all">
+<style id="posts-table-pro-head-inline-css">
+.posts-data-table { visibility: hidden; }
+</style>
+<script src="../../../../wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script src="../../../../wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<script src="../../../../wp-includes/js/jquery/jquery.form.min.js?ver=4.3.0" id="jquery-form-js"></script>
+<script src="../../../../wp-content/plugins/download-manager/assets/bootstrap/js/bootstrap.bundle.min.js?ver=6.6.2" id="wpdm-front-bootstrap-js"></script>
+<script id="wpdm-frontjs-js-extra">
+var wpdm_url = {"home":"..\/..\/..\/..\/index.html","site":"..\/..\/..\/..\/index.html","ajax":"..\/..\/..\/..\/wp-admin\/admin-ajax.php"};
+var wpdm_js = {"spinner":"<i class=\"fas fa-sun fa-spin\"><\/i>"};
+</script>
+<script src="../../../../wp-content/plugins/download-manager/assets/js/front.js?ver=6.1.0" id="wpdm-frontjs-js"></script>
+<script src="../../../../wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js"></script>
+<script src="../../../../wp-includes/js/jquery/ui/mouse.min.js?ver=1.13.3" id="jquery-ui-mouse-js"></script>
+<script src="../../../../wp-includes/js/jquery/ui/resizable.min.js?ver=1.13.3" id="jquery-ui-resizable-js"></script>
+<script src="../../../../wp-includes/js/jquery/ui/effect.min.js?ver=1.13.3" id="jquery-effects-core-js"></script>
+<script src="../../../../wp-includes/js/jquery/ui/effect-blind.min.js?ver=1.13.3" id="jquery-effects-blind-js"></script>
+<script src="../../../../wp-includes/js/jquery/ui/effect-bounce.min.js?ver=1.13.3" id="jquery-effects-bounce-js"></script>
+<script src="../../../../wp-includes/js/jquery/ui/effect-clip.min.js?ver=1.13.3" id="jquery-effects-clip-js"></script>
+<script src="../../../../wp-includes/js/jquery/ui/effect-drop.min.js?ver=1.13.3" id="jquery-effects-drop-js"></script>
+<script src="../../../../wp-includes/js/jquery/ui/effect-explode.min.js?ver=1.13.3" id="jquery-effects-explode-js"></script>
+<script src="../../../../wp-includes/js/jquery/ui/effect-fade.min.js?ver=1.13.3" id="jquery-effects-fade-js"></script>
+<script src="../../../../wp-includes/js/jquery/ui/effect-fold.min.js?ver=1.13.3" id="jquery-effects-fold-js"></script>
+<script src="../../../../wp-includes/js/jquery/ui/effect-highlight.min.js?ver=1.13.3" id="jquery-effects-highlight-js"></script>
+<script src="../../../../wp-includes/js/jquery/ui/effect-pulsate.min.js?ver=1.13.3" id="jquery-effects-pulsate-js"></script>
+<script src="../../../../wp-includes/js/jquery/ui/effect-size.min.js?ver=1.13.3" id="jquery-effects-size-js"></script>
+<script src="../../../../wp-includes/js/jquery/ui/effect-scale.min.js?ver=1.13.3" id="jquery-effects-scale-js"></script>
+<script src="../../../../wp-includes/js/jquery/ui/effect-shake.min.js?ver=1.13.3" id="jquery-effects-shake-js"></script>
+<script src="../../../../wp-includes/js/jquery/ui/effect-slide.min.js?ver=1.13.3" id="jquery-effects-slide-js"></script>
+<script src="../../../../wp-includes/js/jquery/ui/effect-puff.min.js?ver=1.13.3" id="jquery-effects-puff-js"></script>
+<script id="Rich_Web_Tabs-js-extra">
+var rwtabs_object = {"ajaxurl":"..\/..\/..\/..\/wp-admin\/admin-ajax.php"};
+</script>
+<script src="../../../../wp-content/plugins/tabbed//Scripts/Tabs-Rich-Web-Widget.js?ver=6.6.2" id="Rich_Web_Tabs-js"></script>
+<script src="../../../../wp-content/plugins/wpdm-premium-packages/assets/js/wpdmpp-front.js?ver=6.6.2" id="wpdm-pp-js-js"></script>
+<script id="wpp-json" type="application/json">
+{"sampling_active":0,"sampling_rate":100,"ajax_url":"..\/..\/..\/..\/wp-json\/wordpress-popular-posts\/v1\/popular-posts\/index.html","api_url":"..\/..\/..\/..\/wp-json\/wordpress-popular-posts\/index.html","ID":8054,"token":"ac725f52cf","lang":0,"debug":0}
+</script>
+<script src="../../../../wp-content/plugins/wordpress-popular-posts/assets/js/wpp.min.js?ver=6.4.0" id="wpp-js-js"></script>
+<link rel="https://api.w.org/" href="../../../../wp-json/index.html"><link rel="alternate" title="JSON" type="application/json" href="../../../../wp-json/wp/v2/posts/8054/index.html"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../../../xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 6.6.2">
+<link rel="canonical" href="">
+<link rel="shortlink" href="../../../../index.html?p=8054">
+		<script type="text/javascript">
+			//<![CDATA[
+			var show_msg = '';
+			if (show_msg !== '0') {
+				var options = {view_src: "View Source is disabled!", inspect_elem: "Inspect Element is disabled!", right_click: "Right click is disabled!", copy_cut_paste_content: "Cut/Copy/Paste is disabled!", image_drop: "Image Drag-n-Drop is disabled!" }
+			} else {
+				var options = '';
+			}
+
+         	function nocontextmenu(e) { return false; }
+         	document.oncontextmenu = nocontextmenu;
+         	document.ondragstart = function() { return false;}
+
+			document.onmousedown = function (event) {
+				event = (event || window.event);
+				if (event.keyCode === 123) {
+					if (show_msg !== '0') {show_toast('inspect_elem');}
+					return false;
+				}
+			}
+			document.onkeydown = function (event) {
+				event = (event || window.event);
+				//alert(event.keyCode);   return false;
+				if (event.keyCode === 123 ||
+						event.ctrlKey && event.shiftKey && event.keyCode === 73 ||
+						event.ctrlKey && event.shiftKey && event.keyCode === 75) {
+					if (show_msg !== '0') {show_toast('inspect_elem');}
+					return false;
+				}
+				if (event.ctrlKey && event.keyCode === 85) {
+					if (show_msg !== '0') {show_toast('view_src');}
+					return false;
+				}
+			}
+			function addMultiEventListener(element, eventNames, listener) {
+				var events = eventNames.split(' ');
+				for (var i = 0, iLen = events.length; i < iLen; i++) {
+					element.addEventListener(events[i], function (e) {
+						e.preventDefault();
+						if (show_msg !== '0') {
+							show_toast(listener);
+						}
+					});
+				}
+			}
+			addMultiEventListener(document, 'contextmenu', 'right_click');
+			addMultiEventListener(document, 'cut copy paste print', 'copy_cut_paste_content');
+			addMultiEventListener(document, 'drag drop', 'image_drop');
+			function show_toast(text) {
+				var x = document.getElementById("amm_drcfw_toast_msg");
+				x.innerHTML = eval('options.' + text);
+				x.className = "show";
+				setTimeout(function () {
+					x.className = x.className.replace("show", "")
+				}, 3000);
+			}
+		//]]>
+		</script>
+		<style type="text/css">body * :not(input):not(textarea){user-select:none !important; -webkit-touch-callout: none !important;  -webkit-user-select: none !important; -moz-user-select:none !important; -khtml-user-select:none !important; -ms-user-select: none !important;}#amm_drcfw_toast_msg{visibility:hidden;min-width:250px;margin-left:-125px;background-color:#333;color:#fff;text-align:center;border-radius:2px;padding:16px;position:fixed;z-index:999;left:50%;bottom:30px;font-size:17px}#amm_drcfw_toast_msg.show{visibility:visible;-webkit-animation:fadein .5s,fadeout .5s 2.5s;animation:fadein .5s,fadeout .5s 2.5s}@-webkit-keyframes fadein{from{bottom:0;opacity:0}to{bottom:30px;opacity:1}}@keyframes fadein{from{bottom:0;opacity:0}to{bottom:30px;opacity:1}}@-webkit-keyframes fadeout{from{bottom:30px;opacity:1}to{bottom:0;opacity:0}}@keyframes fadeout{from{bottom:30px;opacity:1}to{bottom:0;opacity:0}}</style>
+		<style>/* CSS added by WP Meta and Date Remover*/.wp-block-post-author__name{display:none !important;}
+.wp-block-post-date{display:none !important;}
+ .entry-meta {display:none !important;}
+	.home .entry-meta { display: none; }
+	.entry-footer {display:none !important;}
+	.home .entry-footer { display: none; }</style>    <script>
+        var wpdmpp_base_url = '../../../../wp-content/plugins/wpdm-premium-packages/index.html';
+        var wpdmpp_currency_sign = '$';
+        var wpdmpp_csign_before = '$';
+        var wpdmpp_csign_after = '';
+        var wpdmpp_currency_code = 'USD';
+        var wpdmpp_cart_url = '<br />
+<b>Warning:  Trying to access array offset on value of type bool in <b>C:\xampp\htdocs\wp-content\plugins\wpdm-premium-packages\includes\libs\functions.php on line <b>412<br />
+';
+
+        var wpdmpp_txt = {"cart_button_label":"<i class=\"fas fa-shopping-basket mr-2\"><\/i>Add To Cart","pay_now":"Complete Purchase","checkout_button_label":"Complete Purchase"};
+
+    </script>
+    <style>p.wpdmpp-notice {
+            margin: 5px;
+        }
+    .wpbtn-success {
+        color: var(--color-success) !important;border-color: var(--color-success ) !important;
+        background: rgba(var(--color-success-rgb),0.03) !important;
+        transition: all ease-in-out 300ms;
+    }
+        .wpbtn-success:active,
+        .wpbtn-success:hover {
+            color: var(--color-success-active) !important;
+            border-color: var(--color-success-active) !important;
+            background: rgba(var(--color-success-rgb),0.07) !important;
+        }
+    </style>
+                <style id="wpp-loading-animation-styles">@-webkit-keyframes bgslide{from{background-position-x:0}to{background-position-x:-200%}}@keyframes bgslide{from{background-position-x:0}to{background-position-x:-200%}}.wpp-widget-placeholder,.wpp-widget-block-placeholder,.wpp-shortcode-placeholder{margin:0 auto;width:60px;height:3px;background:#dd3737;background:linear-gradient(90deg,#dd3737 0%,#571313 10%,#dd3737 100%);background-size:200% auto;border-radius:3px;-webkit-animation:bgslide 1s infinite linear;animation:bgslide 1s infinite linear}</style>
+             <style>
+ 	:root {
+		 --phnewsfeed-primary: #3f83bf;
+		 --phnewsfeed-primary-text: #f9ffe7;
+		 --phnewsfeed-background-main: #ffffff;
+		 --phnewsfeed-background-darker: #d6c5e2;
+		 
+		 --phnewsfeed-secondary: #1e73be;
+		 --phnewsfeed-secondary-text: #FFFFFF;
+		 --phnewsfeed-secondary-dark: #0e6bd6;
+		 
+		 --phnewsfeed-text-dark: #111;
+		 --phnewsfeed-text: #555;
+		 --phnewsfeed-text-light: #777;
+		 
+		 --phnewsfeed-header-background: #000000;
+		 --phnewsfeed-header-text: #FFFFFF;
+		 --phnewsfeed-header-lighter: #222222;
+		 --phnewsfeed-top-bar-text: #777777;
+		 
+		 --phnewsfeed-mobile-header-background: #000000;
+		 --phnewsfeed-mobile-header-text: #222222;
+	 }
+ </style>
+<style>
+			#masthead.style3 #middle-bar {
+				background: linear-gradient(90deg, 
+					#c90000,
+					#8158ff				 );
+			}
+		</style> <style>
+	 #masthead #site-branding .custom-logo {
+		 max-height: 100px !important;
+	 }
+ </style>
+      <meta name="onesignal" content="wordpress-plugin">
+            <script>
+
+      window.OneSignal = window.OneSignal || [];
+
+      OneSignal.push( function() {
+        OneSignal.SERVICE_WORKER_UPDATER_PATH = 'OneSignalSDKUpdaterWorker.js';
+                      OneSignal.SERVICE_WORKER_PATH = 'OneSignalSDKWorker.js';
+                      OneSignal.SERVICE_WORKER_PARAM = { scope: '/wp-content/plugins/onesignal-free-web-push-notifications/sdk_files/push/onesignal/' };
+        OneSignal.setDefaultNotificationUrl("../../../../index.html");
+        var oneSignal_options = {};
+        window._oneSignalInitOptions = oneSignal_options;
+
+        oneSignal_options['wordpress'] = true;
+oneSignal_options['appId'] = '';
+oneSignal_options['allowLocalhostAsSecureOrigin'] = true;
+oneSignal_options['httpPermissionRequest'] = { };
+oneSignal_options['httpPermissionRequest']['enable'] = true;
+oneSignal_options['welcomeNotification'] = { };
+oneSignal_options['welcomeNotification']['title'] = "";
+oneSignal_options['welcomeNotification']['message'] = "";
+oneSignal_options['path'] = "../../../../wp-content/plugins/onesignal-free-web-push-notifications/sdk_files/index.html";
+oneSignal_options['promptOptions'] = { };
+oneSignal_options['notifyButton'] = { };
+oneSignal_options['notifyButton']['enable'] = true;
+oneSignal_options['notifyButton']['position'] = 'bottom-right';
+oneSignal_options['notifyButton']['theme'] = 'default';
+oneSignal_options['notifyButton']['size'] = 'medium';
+oneSignal_options['notifyButton']['showCredit'] = true;
+oneSignal_options['notifyButton']['text'] = {};
+                OneSignal.init(window._oneSignalInitOptions);
+                      });
+
+      function documentInitOneSignal() {
+        var oneSignal_elements = document.getElementsByClassName("OneSignal-prompt");
+
+        var oneSignalLinkClickHandler = function(event) { OneSignal.push(['registerForPushNotifications']); event.preventDefault(); };        for(var i = 0; i < oneSignal_elements.length; i++)
+          oneSignal_elements[i].addEventListener('click', oneSignalLinkClickHandler, false);
+      }
+
+      if (document.readyState === 'complete') {
+           documentInitOneSignal();
+      }
+      else {
+           window.addEventListener("load", function(event){
+               documentInitOneSignal();
+          });
+      }
+    </script>
+	<style type="text/css">
+			.site-title,
+		.site-description {
+			position: absolute;
+			clip: rect(1px, 1px, 1px, 1px);
+			}
+			</style>
+	<link rel="icon" href="../../../../wp-content/uploads/2022/02/cropped-cropped-text2image_P1487918_20220215_120124-32x32.png" sizes="32x32">
+<link rel="icon" href="../../../../wp-content/uploads/2022/02/cropped-cropped-text2image_P1487918_20220215_120124-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="../../../../wp-content/uploads/2022/02/cropped-cropped-text2image_P1487918_20220215_120124-180x180.png">
+<meta name="msapplication-TileImage" content="../../../../wp-content/uploads/2022/02/cropped-cropped-text2image_P1487918_20220215_120124-270x270.png">
+		<style id="wp-custom-css">
+			p {
+font-size:28px;
+}
+p { color:#000000; }
+@media all and (min-width: 56.25em) {
+
+  .post-title {
+    font-size: 28px;
+    line-height: 1.357;
+  }
+}
+@media all and (min-width: 68.75em) {
+
+  .post-title {
+    font-size: 38px;
+    line-height: 1.5;
+  }
+}
+
+/* Grid style */
+.display-posts-listing.grid {
+	display: grid;
+	grid-gap: 16px;
+}
+
+.display-posts-listing.grid .title {
+	display: block;
+}
+
+.display-posts-listing.grid img { 
+	display: block; 
+	max-width: 100%; 
+	height: auto; 
+}
+
+@media (min-width: 600px) {
+	.display-posts-listing.grid {
+		grid-template-columns: repeat( 2, 1fr );
+	}
+}
+
+@media (min-width: 1024px) {
+	.display-posts-listing.grid {
+		grid-template-columns: repeat( 3, 1fr );
+	}
+}		</style>
+		<meta name="generator" content="WordPress Download Manager 6.1.0">
+                <link href="https://fonts.googleapis.com/css2?family=Rubik" rel="stylesheet">
+        <style>
+            .w3eden .fetfont,
+            .w3eden .btn,
+            .w3eden .btn.wpdm-front h3.title,
+            .w3eden .wpdm-social-lock-box .IN-widget a span:last-child,
+            .w3eden .card-header,
+            .w3eden .card-footer,
+            .w3eden .badge,
+            .w3eden .label,
+            .w3eden .table,
+            .w3eden .card-body,
+            .w3eden .wpdm-frontend-tabs a,
+            .w3eden .alert:before,
+            .w3eden .discount-msg,
+            .w3eden .panel.dashboard-panel h3,
+            .w3eden #wpdm-dashboard-sidebar .list-group-item,
+            .w3eden #package-description .wp-switch-editor,
+            .w3eden .w3eden.author-dashbboard .nav.nav-tabs li a,
+            .w3eden .wpdm_cart thead th,
+            .w3eden #csp .list-group-item,
+            .w3eden .modal-title {
+                font-family: Rubik, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            }
+            .w3eden .btn
+            {
+                font-weight: 800 !important;
+            }
+            .w3eden .btn {
+                letter-spacing: 1px;
+                text-transform: uppercase;
+            }
+            .w3eden #csp .list-group-item {
+                text-transform: unset;
+            }
+
+
+        </style>
+            <style>
+        /* WPDM Link Template Styles */        </style>
+                <style>
+
+            :root {
+                --color-primary: #4a8eff;
+                --color-primary-rgb: 74, 142, 255;
+                --color-primary-hover: #5998ff;
+                --color-primary-active: #3281ff;
+                --color-secondary: #6c757d;
+                --color-secondary-rgb: 108, 117, 125;
+                --color-secondary-hover: #6c757d;
+                --color-secondary-active: #6c757d;
+                --color-success: #018e11;
+                --color-success-rgb: 1, 142, 17;
+                --color-success-hover: #0aad01;
+                --color-success-active: #0c8c01;
+                --color-info: #2CA8FF;
+                --color-info-rgb: 44, 168, 255;
+                --color-info-hover: #2CA8FF;
+                --color-info-active: #2CA8FF;
+                --color-warning: #FFB236;
+                --color-warning-rgb: 255, 178, 54;
+                --color-warning-hover: #FFB236;
+                --color-warning-active: #FFB236;
+                --color-danger: #ff5062;
+                --color-danger-rgb: 255, 80, 98;
+                --color-danger-hover: #ff5062;
+                --color-danger-active: #ff5062;
+                --color-green: #30b570;
+                --color-blue: #0073ff;
+                --color-purple: #8557D3;
+                --color-red: #ff5062;
+                --color-muted: rgba(69, 89, 122, 0.6);
+                --wpdm-font: "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            }
+
+            .wpdm-download-link.btn.btn-primary {
+                border-radius: 4px;
+            }
+
+
+        </style>
+                <script>
+            function wpdm_rest_url(request) {
+                return "../../../../wp-json/wpdm/index.html" + request;
+            }
+        </script>
+        </head>
+
+<body class="post-template-default single single-post postid-8054 single-format-standard wp-custom-logo">
+<div id="page" class="site">
+	<a class="skip-link screen-reader-text" href="#primary">Skip to content</a>
+	
+				<header id="masthead" class="site-header style3 d-none d-sm-none d-md-block">
+				<div>
+										<div id="middle-bar">
+	<div class="container">
+		<div class="row">
+			<div id="site-branding" class="col">
+				<a href="../../../../index.html" class="custom-logo-link" rel="home"><img width="687" height="48" src="../../../../wp-content/uploads/2022/06/cropped-output-onlinetexttools-removebg-preview.png" class="custom-logo" alt="" decoding="async" srcset="../../../../wp-content/uploads/2022/06/cropped-output-onlinetexttools-removebg-preview.png 687w, ../../../../wp-content/uploads/2022/06/cropped-output-onlinetexttools-removebg-preview-300x21.png 300w" sizes="(max-width: 687px) 100vw, 687px"></a>					<div class="site-title h1"><a href="../../../../index.html" rel="home"></a></div>
+			</div><!-- .site-branding -->
+			
+			<nav id="site-navigation" class="col main-navigation">
+				<div class="container">
+					<div class="menu-menu-container"><ul id="primary-menu" class="menu"><li id="menu-item-8280" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8280"><a href="../../../../privacy-policy-2/index.html">Privacy Policy</a></li>
+<li id="menu-item-8562" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8562"><a href="../../../../password-cracking-resources-and-tools/index.html">Passwords Cracking Resources and Tools.</a></li>
+<li id="menu-item-8563" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8563"><a href="../../../../1-2/index.html">The Ultimate Network Penetration Testing Guide.</a></li>
+<li id="menu-item-8564" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-8564"><a href="../../../07/28/sql-injection-with-shell-access/index.html">SQL Injection with Shell Access</a></li>
+<li id="menu-item-8565" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-8565"><a href="../../../07/28/sql-injections-tools-and-attacks/index.html">SQL Injections: Tools and Attacks</a></li>
+<li id="menu-item-8566" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-8566"><a href="../../../07/28/web-application-security-tools-and-attacks/index.html">Web Application Security: Tools and Attacks</a></li>
+<li id="menu-item-8573" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-8573"><a href="../social-engineering-toolkit/index.html">Social Engineering Toolkit</a></li>
+<li id="menu-item-8574" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-8574"><a href="../the-metasploit-framework/index.html">Networking 101</a></li>
+<li id="menu-item-8575" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-8575"><a href="../armitage-hail-mary/index.html">Armitage Hail Mary</a></li>
+<li id="menu-item-8576" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-8576"><a href="../brute-force-attack-with-tcp-hydra/index.html">Brute Force Attack with TCP Hydra</a></li>
+<li id="menu-item-8577" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-8577"><a href="../dos-attack-with-mkd3/index.html">DoS Attack with MKD3</a></li>
+<li id="menu-item-8578" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-8578"><a href="../evil-twin-deauthentication-attack-with-mdk3/index.html">Evil Twin Deauthentication Attack with mdk3</a></li>
+</ul></div>				</div>
+			</nav><!-- #site-navigation -->
+				
+			<div class="social-menu-wrapper col">
+							</div>
+			
+			<div id="top-search" class="col">
+				<form role="search" method="get" class="search-form" action="../../../../index.html">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s">
+				</label>
+				<input type="submit" class="search-submit" value="Search">
+			</form>	
+			</div>
+			
+			
+		</div>
+	</div>
+</div>	
+				</div>		
+			</header><!-- #masthead -->		
+			
+	 
+	<header id="masthead-mobile" class="d-flex d-sm-flex d-md-none">
+		<a href="#sidr" id="sidr-toggle" class="toggle-menu-hamburger"><i class="fa fa-bars"></i></a>
+		<div id="site-branding-mobile">
+			<a href="../../../../index.html" class="custom-logo-link" rel="home"><img width="687" height="48" src="../../../../wp-content/uploads/2022/06/cropped-output-onlinetexttools-removebg-preview.png" class="custom-logo" alt="" decoding="async" srcset="../../../../wp-content/uploads/2022/06/cropped-output-onlinetexttools-removebg-preview.png 687w, ../../../../wp-content/uploads/2022/06/cropped-output-onlinetexttools-removebg-preview-300x21.png 300w" sizes="(max-width: 687px) 100vw, 687px"></a>	</div><!-- .site-branding -->		<a href="#search-drop" class="search-toggle"><i class="fa fa-search"></i></a>
+	</header>	
+
+	<div class="container">
+		<div class="row">			<div class="acme-ticker-wrapper container d-none d-sm-none d-md-block">
+			<div class="acme-news-ticker">
+					<div class="acme-news-ticker-label">Latest Tools &amp; Resources</div>
+					<div class="acme-news-ticker-box">
+						<ul class="my-news-ticker">
+													
+							<li class="ticker-post"> 
+								<a href="../../../../2024/11/12/setting-up-virtual-machine-for-pentesting/index.html">
+									Setting up Virtual Machine for PenTesting																		<span class="footer-meta"><time class="entry-date published updated" datetime=""></time></span>
+								</a>
+							</li>
+							
+														
+							<li class="ticker-post"> 
+								<a href="../../../07/28/sql-injection-with-shell-access/index.html">
+									SQL Injection with Shell Access																		<span class="footer-meta"><time class="entry-date published updated" datetime=""></time></span>
+								</a>
+							</li>
+							
+														
+							<li class="ticker-post"> 
+								<a href="../../../07/28/sql-injections-tools-and-attacks/index.html">
+									SQL Injections: Tools and Attacks																		<span class="footer-meta"><time class="entry-date published updated" datetime=""></time></span>
+								</a>
+							</li>
+							
+														
+							<li class="ticker-post"> 
+								<a href="../../../07/28/web-application-security-tools-and-attacks/index.html">
+									Web Application Security: Tools and Attacks																		<span class="footer-meta"><time class="entry-date published updated" datetime=""></time></span>
+								</a>
+							</li>
+							
+														
+							<li class="ticker-post"> 
+								<a href="../social-engineering-toolkit/index.html">
+									Social Engineering Toolkit																		<span class="footer-meta"><time class="entry-date published updated" datetime=""></time></span>
+								</a>
+							</li>
+							
+														
+							<li class="ticker-post"> 
+								<a href="../the-metasploit-framework/index.html">
+									Networking 101																		<span class="footer-meta"><time class="entry-date published updated" datetime=""></time></span>
+								</a>
+							</li>
+							
+														
+							<li class="ticker-post"> 
+								<a href="../armitage-hail-mary/index.html">
+									Armitage Hail Mary																		<span class="footer-meta"><time class="entry-date published updated" datetime=""></time></span>
+								</a>
+							</li>
+							
+														
+							<li class="ticker-post"> 
+								<a href="../brute-force-attack-with-tcp-hydra/index.html">
+									Brute Force Attack with TCP Hydra																		<span class="footer-meta"><time class="entry-date published updated" datetime=""></time></span>
+								</a>
+							</li>
+							
+														
+							<li class="ticker-post"> 
+								<a href="../dos-attack-with-mkd3/index.html">
+									DoS Attack with MKD3																		<span class="footer-meta"><time class="entry-date published updated" datetime=""></time></span>
+								</a>
+							</li>
+							
+														
+							<li class="ticker-post"> 
+								<a href="../evil-twin-deauthentication-attack-with-mdk3/index.html">
+									Evil Twin Deauthentication Attack with mdk3																		<span class="footer-meta"><time class="entry-date published updated" datetime=""></time></span>
+								</a>
+							</li>
+							
+														
+							<li class="ticker-post"> 
+								<a href="../ipv6-packet-capturing-with-parasite6/index.html">
+									IPv6 Packet Capturing with Parasite6																		<span class="footer-meta"><time class="entry-date published updated" datetime=""></time></span>
+								</a>
+							</li>
+							
+														
+							<li class="ticker-post"> 
+								<a href="../deauthentication-attack-against-rogue-ap/index.html">
+									Deauthentication Attack against Rogue AP																		<span class="footer-meta"><time class="entry-date published updated" datetime=""></time></span>
+								</a>
+							</li>
+							
+														
+							<li class="ticker-post"> 
+								<a href="../packet-manipulation-with-scapy/index.html">
+									<strong>Packet Manipulation with Scapy</strong>																		<span class="footer-meta"><time class="entry-date published updated" datetime=""></time></span>
+								</a>
+							</li>
+							
+														
+							<li class="ticker-post"> 
+								<a href="../mitm-attack-with-sslstrip/index.html">
+									<strong>MITM Attack with SSLstrip</strong>																		<span class="footer-meta"><time class="entry-date published updated" datetime=""></time></span>
+								</a>
+							</li>
+							
+														
+							<li class="ticker-post"> 
+								<a href="../mitm-attack-with-ettercap/index.html">
+									MITM Attack with Ettercap																		<span class="footer-meta"><time class="entry-date published updated" datetime=""></time></span>
+								</a>
+							</li>
+							
+														
+							<li class="ticker-post"> 
+								<a href="../traffic-capturing-with-xplico/index.html">
+									Traffic Capturing with Xplico																		<span class="footer-meta"><time class="entry-date published updated" datetime=""></time></span>
+								</a>
+							</li>
+							
+														
+							<li class="ticker-post"> 
+								<a href="../capturing-syn-scan-attack/index.html">
+									Capturing SYN Scan Attack																		<span class="footer-meta"><time class="entry-date published updated" datetime=""></time></span>
+								</a>
+							</li>
+							
+														
+							<li class="ticker-post"> 
+								<a href="../passive-reconnaissance-with-kali/index.html">
+									Passive Reconnaissance with Kali																		<span class="footer-meta"><time class="entry-date published updated" datetime=""></time></span>
+								</a>
+							</li>
+							
+														
+							<li class="ticker-post"> 
+								<a href="../capturing-traffic-with-port-mirroring/index.html">
+									Capturing Traffic with Port Mirroring																		<span class="footer-meta"><time class="entry-date published updated" datetime=""></time></span>
+								</a>
+							</li>
+							
+														
+							<li class="ticker-post"> 
+								<a href="../arp-poisoning-with-ettercap/index.html">
+									ARP Poisoning with EtterCAP																		<span class="footer-meta"><time class="entry-date published updated" datetime=""></time></span>
+								</a>
+							</li>
+							
+														
+							<li class="ticker-post"> 
+								<a href="../dictionary-attack-with-airodump-ng/index.html">
+									Introduction to Network Penetration Testing																		<span class="footer-meta"><time class="entry-date published updated" datetime=""></time></span>
+								</a>
+							</li>
+							
+														
+							<li class="ticker-post"> 
+								<a href="../sql-injection-with-sqlmap/index.html">
+									SQL Injection with SQLmap																		<span class="footer-meta"><time class="entry-date published updated" datetime=""></time></span>
+								</a>
+							</li>
+							
+														
+							<li class="ticker-post"> 
+								<a href="../burp-spider-ing-sql-injection/index.html">
+									Burp Spider-ing &amp; SQL Injection																		<span class="footer-meta"><time class="entry-date published updated" datetime=""></time></span>
+								</a>
+							</li>
+							
+														
+							<li class="ticker-post"> 
+								<a href="../randomizing-sessions-tokens/index.html">
+									Randomizing Sessions Tokens																		<span class="footer-meta"><time class="entry-date published updated" datetime=""></time></span>
+								</a>
+							</li>
+							
+														
+							<li class="ticker-post"> 
+								<a href="../target-setup-for-burp-scanner/index.html">
+									Target setup for Burp Scanner																		<span class="footer-meta"><time class="entry-date published updated" datetime=""></time></span>
+								</a>
+							</li>
+							
+														
+							<li class="ticker-post"> 
+								<a href="../burp-suite-proxy-setup/index.html">
+									Burp Suite Proxy setup																		<span class="footer-meta"><time class="entry-date published updated" datetime=""></time></span>
+								</a>
+							</li>
+							
+														
+							<li class="ticker-post"> 
+								<a href="../device-discovery-with-hping3/index.html">
+									Device discovery with Hping3																		<span class="footer-meta"><time class="entry-date published updated" datetime=""></time></span>
+								</a>
+							</li>
+							
+														
+							<li class="ticker-post"> 
+								<a href="../host-discovery-with-port-scanning/index.html">
+									Host discovery with Port Scanning																		<span class="footer-meta"><time class="entry-date published updated" datetime=""></time></span>
+								</a>
+							</li>
+							
+														
+							<li class="ticker-post"> 
+								<a href="../introduction-to-footprinting/index.html">
+									Introduction to Footprinting																		<span class="footer-meta"><time class="entry-date published updated" datetime=""></time></span>
+								</a>
+							</li>
+							
+														
+							<li class="ticker-post"> 
+								<a href="../penetration-testing-standards/index.html">
+									Penetration Testing Standards																		<span class="footer-meta"><time class="entry-date published updated" datetime=""></time></span>
+								</a>
+							</li>
+							
+														
+							<li class="ticker-post"> 
+								<a href="../pen-testing-stage-3/index.html">
+									Pen Testing @ Stage 3																		<span class="footer-meta"><time class="entry-date published updated" datetime=""></time></span>
+								</a>
+							</li>
+							
+														
+							<li class="ticker-post"> 
+								<a href="../pen-testing-stage-2/index.html">
+									Pen Testing @ Stage 2																		<span class="footer-meta"><time class="entry-date published updated" datetime=""></time></span>
+								</a>
+							</li>
+							
+														
+							<li class="ticker-post"> 
+								<a href="../pen-testing-stage-1/index.html">
+									Pen Testing @ Stage 1																		<span class="footer-meta"><time class="entry-date published updated" datetime=""></time></span>
+								</a>
+							</li>
+							
+														
+							<li class="ticker-post"> 
+								<a href="../introduction-to-penetration-testing/index.html">
+									Introduction to Penetration Testing																		<span class="footer-meta"><time class="entry-date published updated" datetime=""></time></span>
+								</a>
+							</li>
+							
+														
+							<li class="ticker-post"> 
+								<a href="../installing-virtual-box-kali-linux/index.html">
+									Installing Virtual Box &amp; Kali Linux																		<span class="footer-meta"><time class="entry-date published updated" datetime=""></time></span>
+								</a>
+							</li>
+							
+														
+							<li class="ticker-post"> 
+								<a href="../software-hardware-recommendations/index.html">
+									Software &amp; Hardware Recommendations for Ethical Hacking With Kali Linux																		<span class="footer-meta"><time class="entry-date published updated" datetime=""></time></span>
+								</a>
+							</li>
+							
+														
+							<li class="ticker-post"> 
+								<a href="">
+									Introduction to Linux																		<span class="footer-meta"><time class="entry-date published updated" datetime=""></time></span>
+								</a>
+							</li>
+							
+													</ul>
+					</div>
+					<div class="acme-news-ticker-controls acme-news-ticker-vertical-controls">
+						<button class="acme-news-ticker-arrow acme-news-ticker-prev"></button>
+						<button class="acme-news-ticker-pause"></button>
+						<button class="acme-news-ticker-arrow acme-news-ticker-next"></button>
+					</div>
+			</div> 
+		</div>
+
+	<main id="primary" class="site-main col-md-12">
+
+		<article id="post-8054" class="single-style1 post-8054 post type-post status-publish format-standard has-post-thumbnail hentry category-ethical-hacking-with-kali-linux">
+
+	<header class="entry-header">
+		<h1 class="entry-title">Introduction to Linux</h1>	
+			<div class="entry-meta">
+				<span class="posted-on">Posted on <a href="" rel="bookmark"><time class="entry-date published" datetime=""></time><time class="updated" datetime=""></time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="../../../../author/julisunkan/index.html"></a></span></span>			</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+	
+			<div class="post-thumbnail">
+				<img width="405" height="266" src="../../../../wp-content/uploads/2024/11/53g2cepb.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" decoding="async" fetchpriority="high" srcset="../../../../wp-content/uploads/2024/11/53g2cepb.png 405w, ../../../../wp-content/uploads/2024/11/53g2cepb-300x197.png 300w" sizes="(max-width: 405px) 100vw, 405px">			</div><!-- .post-thumbnail -->
+
+		
+	<div class="entry-content clearfix">
+		
+<p><strong>Introduction to Linux</strong></p>
+
+
+
+<p><a></a>To understand Linux, the leading operating system of the cloud, Internet of Things, DevOps, and Enterprise server worlds it is substantial to an IT career.</p>
+
+
+
+<p>To comprehend the world of open software licensing is not easy, but let me give you some highlights. If you&rsquo;re planning to work with free software like Linux, you should understand the basics of the rules that govern it.</p>
+
+
+
+<p>Let???s first look at licensing. There are three main methods to licensing; the Free Software Foundation founded in 1985 by Richard Stallman, the younger Open Source Initiative, and Creative Commons.</p>
+
+
+
+<p>First of all, the Free Software Foundation wants software to be free, not as free of charge, but to allow users the freedom to do whatever they like with it. Think about it like this.</p>
+
+
+
+<p>You may have to pay for it, but once it&rsquo;s yours you can do whatever you want with it. Richard Stallman and his foundation are the original authors of the GPL, and the GNU General Public License, which allows users the right to do whatever they like with their software, including modifying it and selling it, as long as they don&rsquo;t make any changes to the original license conditions.</p>
+
+
+
+<p>The Linux kernel is the most significant piece of software released onto the GPL. But, the Open Source Initiative, while cooperating with the free software foundation where possible, believes that there should be more flexible licensing arrangements obtainable if open source software is to achieve the greatest impact possible on the larger software market.</p>
+
+
+
+<p>Open source means that the original programming code of a piece of software is made freely obtainable to users, along with the program itself.</p>
+
+
+
+<p>Licenses that are more closely line up with the OSI goals but include various versions of the Berkeley Software Distribution aka BSD, which oblige little more than the redistributions display the original software&rsquo;s copyright notice and disclaimer.</p>
+
+
+
+<p>This makes it easier for commercial developments to deploy their modified software under new license models without having to concern about breaking previous measures.</p>
+
+
+
+<p>The FOSS and FLOSS designations may support to reflect the alterations between these two visions. FOSS only implies that the software can be acquired free of charge, although FLOSS focuses on what you can do with</p>
+
+
+
+<p><a></a>the software once you obtain it.</p>
+
+
+
+<p>The Creative Commons license authorizes creators of nearly anything such as software, films, music, or books to select exactly the rights they wish to reserve for themselves.</p>
+
+
+
+<p>Under the Creative Commons system a creator can hand-pick between any combination of the following five elements; attribution, which allows modification and redistribution as long as the creator attribution is included; share-alike, which necessitates the original license conditions to be included in all future distributions and copies.</p>
+
+
+
+<p>Next is called ???non-commercial???, which permits only non-commercial use; no derivative works, permitting further redistribution, but only unmodified copies; and public domain, which allows all possible usage.</p>
+
+
+
+<p>It&rsquo;s essential when using software released under the Creative Commons to be aware of exactly which elements have been selected by the author. The creative commons share-alike condition, along with Stallman&rsquo;s GPL are in practical terms, related to the copy left distribution system.</p>
+
+
+
+<p>Copy left licenses permit full recycle and redistribution of a software package, but only when the original substantial permissions are included in the next level distribution.</p>
+
+
+
+<p>This can be valuable for authors who don&rsquo;t want their software to ever evolve into closed license types, but want its derivatives to remain free forever. Non-copy left open source licenses are frequently referred to as permissive licenses.</p>
+
+
+
+<p>Permissive licenses will typically not require adherence to any parent restrictions. Instances of such licenses that often allow just about any use of the license software, as long as the original work is attributed in derivatives, are the MIT, BSD, and Apache licenses.</p>
+
+
+
+<p>Nowadays, pretty much Apache and MIT are the ones most widely utilised. But because open source software is free, doesn&rsquo;t mean that it has no place within the operations of ???for-profit??? companies.</p>
+
+
+
+<p>In fact, the products of many largest and most profitable Companies are built, using open source software. In many cases, Companies will freely release their software as open source, as well as providing premium service and</p>
+
+
+
+<p><a></a>support to paying consumers.</p>
+
+
+
+<p>For example Ubuntu and CentOS Linux distributions are of that model, because they&rsquo;re supported by Canonical and Red Hat consistently, and both of which are in the business of providing support for enterprise clients, and these are very serious businesses.</p>
+
+
+
+<p>Another example is Red Hat Linux, which was purchased by IBM for over $30 billion. It&rsquo;s worth noticing that the mainstream of programming code contributions to the Linux kernel are being written by full-time staffs of large technology companies, including Google and Microsoft.</p>
+
+
+
+<p>Oddly, viewing the license for the user of open source software on your device isn&rsquo;t always so easy. Desktop apps will frequently make their license information available through the ???help and about??? menu selections, but in other cases the best way to find licensing information on a specific product is to visit their website.</p>
+
+
+
+<p>The original Linux kernel was created by Linus Torvalds in the early 90&rsquo;s and then donated to the community. Community means anyone, anytime, anywhere, and donated means that the programming code of any Linux component will be freely available for anyone to download, modify, and do anything they might want with it, including profiting from their own customized versions if they want to.</p>
+
+
+
+<p>A computer operating system or OS is a set of software tools designed to interpret a user&rsquo;s commands, so they can be translated into terms that the host computer can understand. Just about any operating system can be installed and launched on most standard hardware architecture, assuming it has enough memory and processing power to support the OS&rsquo;s features.</p>
+
+
+
+<p>Hence, you can load Linux natively on any computer or Mac OS, a tiny development board running an ARM processor, or as a virtualized container image within a Docker environment.</p>
+
+
+
+<p>Nearly all desktop operating systems provide two ways to access their tools through a graphic user interface, also known as GUI, and through a command line interface or CLI.</p>
+
+
+
+<p>Every modern operating systems allow you to securely and consistently run sophisticated productivity and entertainment tools through the GUI and provide an suitable environment where you can develop your own software,</p>
+
+
+
+<p><a></a>which was the only thing the first personal computers could do.</p>
+
+
+
+<p>All Linux have that in in common, but what they do differently is what???s more interesting. The most obvious difference between Linux and its commercial competitors is commercial limitations.</p>
+
+
+
+<p>Others have them, and Linux does not. This means that you&rsquo;re free to install as many versions of Linux on as many hardware devices as you wish, and no one will tell you otherwise.</p>
+
+
+
+<p>This freedom changes the way you&rsquo;ll use your operating system because it gives you flexibility to make the changes and customizations that fit your requirements best.</p>
+
+
+
+<p>It&rsquo;s not unusual to take a hard drive with a Linux file system installed from one computer and drop it into another, and it&rsquo;ll work just fine in opposite with either Windows or Mac OS.</p>
+
+
+
+<p>Often have as many as half a dozen virtual and physical Linux instances running at a single time as I test various software processes and network design, something that I&rsquo;d perhaps never try if I needed obtaining separate licenses.</p>
+
+
+
+<p>This should have two immediate advantages for you. One, you can spend lots of time experimenting with various Linux distributions and desktops as your Linux skills grow, and you can naturally launch test deployment before you launch your company&rsquo;s new Linux-based resources to ensure that they&rsquo;re running properly.</p>
+
+
+
+<p>Linux environment contains three kinds of software; the Linux kernel, the desktop interface such as GNOME or Cinnamon, and customizations provided by your specific distribution such as Ubuntu or Red Hat.</p>
+
+
+
+<p>Generally, you&rsquo;re not going to download or directly manage the Linux kernel. That will be handled for you by the installation and update processes used by the distribution you pick.</p>
+
+
+
+<p>To maintain steadiness, it&rsquo;s not unusual for distributions to largely ignore non-critical new kernel releases for many months. Distributions, particularly the larger and better known ones are commonly updated, while security and critical feature patches are made available almost instantly.</p>
+
+
+
+<p>Most distributions have managed third-party software repositories and</p>
+
+
+
+<p><a></a>package management tools for handling updates. If you look at a Software and Updates dialog on Linux boxes, you can choose how you&rsquo;d like updates to be applied.</p>
+
+
+
+<p>In addition to the operating system, there are thousands of free software packages available that allows you to perform any compute task feasible, more quickly and safely than you could on other platforms.</p>
+
+
+
+<p>Whether you&rsquo;re looking for office productivity suites or web server and security services, it will all be integrated into the fabric of the Linux system by reliable package managers.</p>
+
+
+
+<p>For example if you want to use editing software such as Adobe on Windows or Mac, to get them work effectively without running into system slowdowns, you would need a fast CPU, 32 GB of RAM, and a dedicated video RAM.</p>
+
+
+
+<p>These rigs could cost thousands of dollars and require cooling systems to keep them from melting down. Nevertheless, if you would use Linux, you could run virtualized processes, along with regular daily tasks on a simple PC, built from less than $300.</p>
+
+
+
+<p>As Linux is open source, many people have created their own versions of the OS, known as distributions or ???distros??? to fit specialized needs. The most famous of these is Google&rsquo;s Android OS for smart phones, but there are hundreds of others, including enterprise deployment distros, such as Red Had Enterprise, and it&rsquo;s free community rebuild, CentOS for example.</p>
+
+
+
+<p>There&rsquo;s a distribution specially optimized for scientific and advanced mathematical applications called Scientific Linux, Kali Linux for network security testing and management, which we will dive in more depth shortly, but other distributions built to be embedded in IoT or Internet of Things devices such as Raspbian for the ultra-cheap Raspberry Pi development board.</p>
+
+
+
+<p>Distributions are often grouped into families. For example a specific distribution might earn a reputation for stability, good design, quick patching, and a healthy ecosystem of third-party software.</p>
+
+
+
+<p>Instead of having to re-invent the wheel, other communities might fork derivative versions of that parent distro and their own customizations, and distribute it under a new name, but the original parent child relationship remains.</p>
+
+
+
+<p><a></a>Updates and patches are pushed from the upstream parent downstream to all the children. This is efficient and an effective way to maintain autonomous systems.</p>
+
+
+
+<p>The best known distribution families are Debian, which maintains a downstream ecosystem that includes the all-purpose Ubuntu for example.</p>
+
+
+
+<p>Mint Kali Linux and Red Hat are responsible for the CentOS; and consumer focused Fedora distros; SUSE, that provides OpenSUSE; and the infamously complex but ultra-efficient Arch Linux, whose downstream followers include LinHES for Home Entertainment Management, and the GUI focused Manjaro.</p>
+
+
+
+<p>You&rsquo;ll also find Linux distribution images for all kinds of dedicated deployments. Extremely lightweight distros can be embedded in Internet of Things devices such as fridges or light bulbs.</p>
+
+
+
+<p>Docker containers are fast and efficient because they share the OS kernel with their Linux host environments, and they can be built using a wide range of Linux based images.</p>
+
+
+
+<p>The cloud, led by AWS or Amazon Web Services and Azure, the virtualized on-demand service computing is just great as it contains about everything we know about computing.</p>
+
+
+
+<p>Linux is multipurpose and free, therefore it???s the perfect operating system for cloud deployments. Another Linux version is being used to run a significant majority of cloud occurrences is hosted on Microsoft&rsquo;s Azure cloud platform.</p>
+
+
+
+<p>The significance of the industry-wide shift to the cloud is the appearance of specialized Linux distributions that are designed to deliver the best conceivable cloud experience by being small and fast as possible.</p>
+
+
+
+<p>These specialty distros will frequently include out of the box functionality that allows you take advantage of your specific cloud host environment. These distros include AWS&rsquo;s Amazon Linux AMI for example.</p>
+
+
+
+<p>AMI stands for Amazon Machine Image, and purpose-built long-term support Ubuntu releases. Long-term support or LTS releases are built to be as stable using fully tested software and configurations.</p>
+
+
+
+<p>The reliability of such configurations makes it possible for the distro managers to continue to provide security and feature updates to a release for</p>
+
+
+
+<p><a></a>5 years.</p>
+
+
+
+<p>You can deploy an LTS release as a server without worrying to rebuild it all that time. If you like to try out the latest and greatest versions of software, you might go ahead and install the most recent interim release, but for stable environments, you have to have an LTS.</p>
+
+
+
+<p>In summary, open source software can be delivered using various license models. The GPL, the GNU General Public License permits any use, modification or redistribution as long as the original license terms aren&rsquo;t changed.</p>
+
+
+
+<p>Creative commons licenses permit more restrictive license conditions to give greater choice to software creators. Other major licensing models include Apache, BSD and MIT.</p>
+
+
+
+<p>Linux is a flexible platform that can be customized to power any compute device, both; physical or virtual. You learned about Linux distributions that package the Linux kernel, along with GUI desktops and specialized software and configurations.</p>
+
+
+
+<p>The distribution families we discussed include Red Hat Enterprise Linux, Debian and Arch. In conclusion, you now have a basic understanding about the ways distributions patch and maintain the software in Linux machines, as well as how they frequently make new releases available, including LTS or Long Term Support releases.</p>
+
+
+
+<p>Before you install any Linux, I want to say that Linux Installation is not a simple mission. There are so many platforms on which you can install Linux, so many distros and distro releases and each one with its own installation program, so many configuration options, and so many uniquely different installation pathways that presenting a small subset of the topic in a logical way is a challenge.</p>
+
+
+
+<p>You can install Linux on PCs and traditional servers. Besides the fact that the Android OS itself is built on a Linux kernel, there&rsquo;s nothing stopping you from installing a more mainstream distro, but keep in mind that such experiments can end badly for the device.</p>
+
+
+
+<p>What about a refrigerator or something smaller like a kids toy, which are likely to be produced in very large numbers, or virtual servers that are designed to live for a few seconds, perform a specific time-sensitive task, and</p>
+
+
+
+<p><a></a>then shut themselves down forever?</p>
+
+
+
+<p>Well, the regular install processes won&rsquo;t work properly in those scenarios, so you&rsquo;ll often need to think outside the box. Many Internet of Things devices use tiny development boards, such as the inexpensive Raspberry Pi to run their compute operations.</p>
+
+
+
+<p>In the case of the Pi, you can build an OS image on your own PC and flash it onto an SD card, which you can then insert into device and boot it up. Virtual servers can be provisioned using scripts that define the precise operating system and configuration details you&rsquo;re after.</p>
+
+
+
+<p>Sometimes in response to an external trigger, the scripts will automatically activate resources in your target environment and deploy them as needed to meet changing demand.</p>
+
+
+
+<p>The variety and flexibility inherent in the Linux and open source ecosystem make it possible to assemble the right combination of software layers necessary to match the hardware resources you&rsquo;re using and your compute workload.</p>
+
+
+
+<p>In the course of a traditional Linux installation you&rsquo;re going to face choices regarding some of the environment settings within which your OS will operate, how your computer will connect to the network, what kind of user account you&rsquo;ll create for day-to-day administration, and what storage devices you&rsquo;ll use for the software and data used by your system.</p>
+
+
+
+<p>Let&rsquo;s talk about those one at a time. Linux distros allow you to choose to interact with the GUI using any one of the languages but you&rsquo;ll need to specify which language you want and which keyboard layout you&rsquo;re using.</p>
+
+
+
+<p>The language you choose will determine what you&rsquo;ll see in dialog boxes and configuration menus throughout the desktop. You&rsquo;ll also need to set your location, so Linux will know your time zone.</p>
+
+
+
+<p>Many of your network and file handling operations will depend on the time zone setting, so you want to get this right. These settings can be updated later either using the GUI or the CLI.</p>
+
+
+
+<p>If it&rsquo;s possible you&rsquo;re better off enabling internet access before your installation gets going. This way, your distro can download the latest updates that might not be included in your installation archive, so you&rsquo;ll have one less</p>
+
+
+
+<p><a></a>thing to do when you log in to your new workstation.</p>
+
+
+
+<p>The CentOS installation program will ask you whether you want to set up a regular user for your system or if you&rsquo;re fine with just the root user.</p>
+
+
+
+<p>While you&rsquo;re not forced to create a regular user, to harden your security posture, it&rsquo;s highly endorsed that you avoid logging in as a ???root??? user for normal operations.</p>
+
+
+
+<p>As an alternative, logging in and getting your work done as a regular user who can, when necessary, invoke administration powers using pseudo, is much better.</p>
+
+
+
+<p>Standard Ubuntu install processes for example won&rsquo;t even offer the option of using root. You can always opt in to go with the default approach for storage devices where in most cases the entire file system will be installed within a single partition, but you might want to explore other options for more complicated or unusual use cases.</p>
+
+
+
+<p>Many server admins prefer keeping the ???/var??? directory hierarchy isolated in a separate partition to ensure that system log data doesn&rsquo;t overwhelm the rest of the system.</p>
+
+
+
+<p>You can use a small but fast SSD or solid state drive for most of the system files, while the larger ???home??? and ???var??? directories are mounted to a larger, but much slower hard drive.</p>
+
+
+
+<p>This allows you to leverage the speed of the SSD for running Linux binaries while getting away with a less expensive magnetic hard drive for your data, where the performance difference wouldn&rsquo;t be as much noticeable.</p>
+
+
+
+<p>You&rsquo;ll be asked whether you want your storage devices to be managed as ???LVM volumes???. But what is an ???LVM volume????</p>
+
+
+
+<p>Well, LVM stands for Logical Volume Manager, which is a way to virtualize storage devices, so they&rsquo;re easy to be manipulated later on. But how it functions?</p>
+
+
+
+<p>Well, Let&rsquo;s imagine that you&rsquo;ve got three separate physical drives on your system. LVM would turn them all into a single volume group, whose capacity equals the total aggregate space from all three drives.</p>
+
+
+
+<p>At any time you&rsquo;ll be free to create as many logical volumes from that volume group as you&rsquo;d like, using any combination of individual capacity, up</p>
+
+
+
+<p><a></a>to the total available volume.</p>
+
+
+
+<p>If your 3 drives were 2 TB, 500 GB, and 200 GB in size separately, and you needed to work with a data drive of at least 2.3 TB, you could use LVM to create 1 logical volume of 2.3 TB and a second volume of 400 GB for everything else.</p>
+
+
+
+<p>If your requirements change in the future, you can reduce the size of your data drive and transfer the extra data to the second volume, or to a new volume. Adding or swapping out volumes can be relatively simple operations. LVM can give you fantastic configuration flexibility, but for simple setups it&rsquo;s normally not essential.</p>
+
+
+
+<p>Now that you&rsquo;re aware of some of the theory, you can go ahead and jump right into Kali Linux installation, but before you do that I would like to recommend few other software and hardware that you should get hold of as Pen Tester.</p>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer clearfix">
+		<span class="cat-links">Posted in <a href="../../../../category/ethical-hacking-with-kali-linux/index.html" rel="category tag">Ethical Hacking With Kali Linux</a></span>	</footer><!-- .entry-footer -->
+		
+	
+	<nav class="navigation post-navigation" aria-label="Posts">
+		<h2 class="screen-reader-text">Post navigation</h2>
+		<div class="nav-links"><div class="nav-next"><a href="../software-hardware-recommendations/index.html" rel="next"><span class="nav-title">Software &amp; Hardware Recommendations for Ethical Hacking With Kali Linux</span><i class="fa fa-arrow-alt-circle-right"></i></a></div></div>
+	</nav>			
+</article><!-- #post-8054 -->
+	</main><!-- #main --> 
+
+
+<aside id="secondary" class="widget-area d-none">
+	<section id="block-4" class="widget widget_block">
+<div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow"></div></div>
+</section><section id="block-5" class="widget widget_block">
+<div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow"></div></div>
+</section><section id="block-6" class="widget widget_block">
+<div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow"></div></div>
+</section></aside><!-- #secondary -->
+	</div><!--#.row-->
+	</div><!--.container-->	<footer id="footer-widgets">
+	<div class="container">
+		<div class="row">
+											</div>
+	</div>
+</footer>	<footer id="colophon" class="site-footer">
+	<div class="site-info">
+		&copy;   2024		<span class="sep"> | </span>
+			Designed by <a rel="nofollow" href="">julisunkan</a>.	</div><!-- .site-info -->
+</footer><!-- #colophon -->	</div><!-- #page -->
+
+<div id="sidr">
+	<button class="go-to-bottom"><i class="fa fa-down"></i></button>
+	<button id="close-menu" class="toggle-menu-link"><i class="fa fa-times"></i></button>
+	<form role="search" method="get" class="search-form" action="../../../../index.html">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s">
+				</label>
+				<input type="submit" class="search-submit" value="Search">
+			</form>		<div class="sidr-menu-wrapper">
+		<div id="mobile-menu-sidr" class="menu"><ul>
+<li class="page_item page-item-8534"><a href="../../../../index.html">Botnets Attacks: Tools and Resources.</a></li>
+<li class="page_item page-item-8676"><a href="../../../../cart/index.html">Cart</a></li>
+<li class="page_item page-item-8583"><a href="../../../../document-library/index.html">Document Library</a></li>
+<li class="page_item page-item-8584"><a href="../../../../document-search/index.html">Document Search Results</a></li>
+<li class="page_item page-item-8259 current_page_parent"><a href="../../../../ethical-hacking-tools-resources/index.html">ETHICAL HACKING TOOLS &amp; RESOURCES</a></li>
+<li class="page_item page-item-8221"><a href="../../../../password-cracking-resources-and-tools/index.html">Passwords Cracking Resources and Tools.</a></li>
+<li class="page_item page-item-8281"><a href="../../../../privacy-policy-2/index.html">Privacy Policy</a></li>
+<li class="page_item page-item-8677"><a href="../../../../purchases/index.html">Purchases</a></li>
+<li class="page_item page-item-2"><a href="../../../../1-2/index.html">The Ultimate Network Penetration Testing Guide.</a></li>
+<li class="page_item page-item-8589"><a href="../../../../video-courses/index.html">video Courses</a></li>
+</ul></div>
+	</div>
+	<button class="go-to-top"><i class="fa fa-up"></i></button>
+	
+</div>    <div id="amm_drcfw_toast_msg"></div>
+            <script>
+                jQuery(function($){
+
+                    
+                                    });
+            </script>
+            <div id="fb-root"></div>
+                    <style>
+
+            .wpdm-popover {
+                transition: all ease-in-out 400ms;
+                position: relative;display: inline-block;
+            }
+
+            .wpdm-popover .wpdm-hover-card {
+                position: absolute;
+                left: 0;
+                bottom: 50px;
+                width: 100%;
+                transition: all ease-in-out 400ms;
+                margin-bottom: 28px;
+                opacity: 0;
+                z-index: -999999;
+            }
+
+            .wpdm-popover:hover .wpdm-hover-card {
+                transition: all ease-in-out 400ms;
+                opacity: 1;
+                z-index: 999999;
+                bottom: 0px;
+            }
+
+            .wpdm-popover .wpdm-hover-card.hover-preview img {
+                width: 104px;
+                border-radius: 3px;
+            }
+
+            .wpdm-popover .card .card-footer{
+                background: rgba(0,0,0,0.02);
+            }
+
+            .packinfo {
+                margin-top: 10px;
+                font-weight: 400;
+                font-size: 14px;
+            }
+        </style>
+        <script>
+            jQuery(function ($) {
+                $('a[data-show-on-hover]').on('hover', function () {
+                    $($(this).data('show-on-hover')).fadeIn();
+                });
+            });
+        </script>
+                <div class="w3eden">
+            <div id="wpdm-popup-link" class="modal fade">
+                <div class="modal-dialog" style="width: 750px">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                              <h4 class="modal-title"></h4>
+                        </div>
+                        <div class="modal-body" id="wpdm-modal-body">
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
+
+        </div>
+        <script language="JavaScript">
+            <!--
+            jQuery(function () {
+                jQuery('.wpdm-popup-link').click(function (e) {
+                    e.preventDefault();
+                    jQuery('#wpdm-popup-link .modal-title').html(jQuery(this).data('title'));
+                    jQuery('#wpdm-modal-body').html('<i class="icon"><img align="left" style="margin-top: -1px" src="../../../../wp-content/plugins/download-manager/assets/images/loading-new.gif" />&nbsp;Please Wait...');
+                    jQuery('#wpdm-popup-link').modal('show');
+                    jQuery.post(this.href,{mode:'popup'}, function (res) {
+                        jQuery('#wpdm-modal-body').html(res);
+                    });
+                    return false;
+                });
+            });
+            //-->
+        </script>
+        <style type="text/css">
+            #wpdm-modal-body img {
+                max-width: 100% !important;
+            }
+            .wpdm-placeholder{
+                display: none;
+            }
+        </style>
+            <div class="w3eden">
+            <div class="modal" tabindex="-1" id="wpdm-pdf-preview">
+                <div class="modal-dialog modal-dialog-centered" style="width: 900px;max-width: 100%;">
+                    <div class="modal-content" style="box-shadow: 0 0 20px rgba(0,0,0,0.2);border-radius: 4px;overflow: hidden">
+                        <div class="modal-body p-0">
+                            <iframe id="wpdm-pdf-preview-frame" src="data:text/plain;base64,TG9hZGluZyBQREYgRmlsZS4uLg==" style="width: 100%;border: 0;height: 700px;margin: 0 0 -8px;padding: 0"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            jQuery(function ($){
+                $('.wpdm-pdf-preview').on('click', function (){
+                    $('#wpdm-pdf-preview-frame').attr('src', "data:text/plain;base64,TG9hZGluZyBQREYgRmlsZS4uLg==");
+                    $('#wpdm-pdf-preview-frame').attr('src', $(this).attr('href'));
+                });
+            });
+        </script>
+        <style>
+            #wpdm-pdf-preview {
+                background: rgba(0,0,0,0.4);
+            }
+        </style>
+        <script id="custom-script-js-extra">
+var wpdata = {"object_id":"8054","site_url":"..\/..\/..\/..\/index.html"};
+</script>
+<script src="../../../../wp-content/plugins/wp-meta-and-date-remover/assets/js/inspector.js?ver=1.0" id="custom-script-js"></script>
+<script src="../../../../wp-content/themes/ph-news-feed/js/navigation.js?ver=1.0.1.1" id="phnewsfeed-navigation-js"></script>
+<script src="../../../../wp-content/themes/ph-news-feed/lib/acmeticker/js/acmeticker.min.js?ver=6.6.2" id="acme-ticker-js"></script>
+<script src="../../../../wp-content/themes/ph-news-feed/lib/owl-carousel/dist/owl.carousel.js?ver=2.3.4" id="owl-carousel-js"></script>
+<script src="../../../../wp-content/themes/ph-news-feed/lib/sidr/jquery.sidr.min.js?ver=2.2.1" id="sidr-js"></script>
+<script src="../../../../wp-content/themes/ph-news-feed/js/theme.js?ver=1.0.1.1" id="phnewsfeed-theme-js-js"></script>
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js?ver=1.0.0" id="remote_sdk-js" async data-wp-strategy="async"></script>
+
+</body>
+</html>
+<!-- Powered by Staatic (https://staatic.com/) -->
